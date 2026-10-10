@@ -1,0 +1,12 @@
+{
+  "project_lean": "leanprover/lean4:v4.24.0",
+  "mathlib": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+  "formal_math_reference": "e1a4e6508154ea59f030480661590a9fe3018011",
+  "lean4export": "f7f95b22c1bff79cfbec7f32c13ced73a1b4fdcd",
+  "nanoda": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+  "nanoda_build_rust": "1.99.0",
+  "landrun_build_go": "1.27.2",
+  "reference_comparator_not_accepted": "575674928e239f5bc452aab72d1dd7b0f1326494",
+  "reference_landrun_not_used_in_successful_replay": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+  "reference_comparator_build_lean": "leanprover/lean4:v4.34.0-rc1"
+}

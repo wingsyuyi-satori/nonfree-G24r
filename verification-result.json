@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "verified_on": "2026-10-10",
+  "lean_build": "passed",
+  "lean_build_target": "Solution",
+  "clean_project_rebuild": "passed",
+  "clean_rebuild_method": "A separate source-only project was built without copied project .olean files, followed by rebuilding finalized entrypoints and TwoStep. Downloaded, pinned external Mathlib dependency caches were reused; external dependencies were not rebuilt from source.",
+  "axiom_audit": "passed",
+  "axiom_audit_declarations": 22,
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "source_trust_audit": "passed",
+  "delivered_lean_source_files": 19,
+  "nanoda": "passed",
+  "nanoda_checked_declarations": 18169,
+  "exported_theorems": [
+    "twentyfour_not_free",
+    "twentyfour_hasRelation",
+    "twentyfour_boundedRelation",
+    "twentyfour_complex_not_free",
+    "twentyfour_twoStep",
+    "TwentyFour.simple_direct_power_identity",
+    "TwentyFour.simple_direct_scaled_certificate",
+    "TwentyFour.simple_direct_four_residues_certificate"
+  ],
+  "proof_export_sha256": "f514b1142ef5a7e93adb44fccdce8417a0a209aff88d15c00d0426801dfb94f8",
+  "proof_export_bytes": 92643275,
+  "specification": "Mathlib-only Challenge proposition definitions; Solution proves those exact propositions, including checked implementation identifications.",
+  "simplified_direct_chain": "Final omitted-residue proofs use SimpleDirect. The export does not contain three_factor, four_branch, odd_three_branch, or direct_parameters.",
+  "full_comparator": "not completed",
+  "comparator_limitations": [
+    "The current reference comparator expects String.ofList, absent in project Lean 4.24.",
+    "The host sandbox probe found Landlock ABI 0, below the requested landrun sandbox requirements."
+  ],
+  "checker_modified_or_sandbox_bypassed": false,
+  "metadata_validation": "CITATION.cff passes the official CFF 1.2.0 schema; .zenodo.json is valid and title, author, affiliation, version, and normalized MIT license match.",
+  "author": "Ziheng Wang",
+  "affiliation": "University of Chinese Academy of Sciences, Hangzhou Institute for Advanced Study, Hangzhou, China",
+  "ai_assistance": "GPT-6-Astra",
+  "software_license": "MIT",
+  "paper_license": "CC-BY-4.0"
+}

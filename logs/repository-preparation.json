@@ -1,0 +1,26 @@
+{
+  "prepared_on": "2026-10-10",
+  "version": "0.1.0",
+  "repository": "https://github.com/wingsyuyi-satori/nonfree-G24r",
+  "inputs": {
+    "numerator24-paper.pdf": "7b7cb440ad1b5d66e391a04be44d9131cfa7131cdbe93b324778281fc0a893dd",
+    "numerator24-paper-lean-v0.1.0.zip": "c912a11e5aa035bc40e053c6e7456cffaafe85bddbe1f7070188e138699e2979"
+  },
+  "original_package_manifest": {
+    "checked_files": 71,
+    "mismatches": 0
+  },
+  "lean_source_hashes": {
+    "checked_files": 19,
+    "mismatches": 0
+  },
+  "manuscript_pdf_matches_input": true,
+  "mathematical_sources_preserved": true,
+  "exact_finite_certificate": "passed; all 40320 residues and 23 exceptional words checked",
+  "generated_manuscript_outputs": "byte-for-byte match",
+  "cff_schema_validation": "passed; official CFF 1.2.0 schema",
+  "cff_schema_sha256": "17bc7993c67b95eec988dadca78b65cb29cd489d1fceba71040a141dfb9791df",
+  "local_lean_rebuild": "not performed; no installed Lean toolchain on preparation machine",
+  "local_nanoda_replay": "not performed; original source-matched evidence retained",
+  "zenodo_deposit": "pending; combined software record planned"
+}

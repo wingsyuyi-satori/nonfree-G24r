@@ -1,0 +1,22 @@
+{
+  "title": "Nonfreeness for rational two-parabolic groups with numerator 24: Lean formalization",
+  "upload_type": "software",
+  "version": "0.1.0",
+  "creators": [
+    {
+      "name": "Wang, Ziheng",
+      "affiliation": "University of Chinese Academy of Sciences, Hangzhou Institute for Advanced Study, Hangzhou, China"
+    }
+  ],
+  "license": "mit",
+  "access_right": "open",
+  "language": "eng",
+  "description": "Lean 4 and Mathlib formalization accompanying the manuscript \"Nonfreeness for rational two-parabolic groups with numerator 24\" by Ziheng Wang. It proves nonfreeness in SL(2,Q) and SL(2,C) for every integer denominator r with |r| > 6, provides nontrivial reduced relations of at most 64 generator-power syllables, and proves the two-step triangular-word condition for |r| > 17. AI assistance: GPT-6-Astra. The software is licensed under MIT; the accompanying manuscript and its source/PDF under paper/ are licensed separately under CC BY 4.0. Verification status and precise scope are recorded in the included logs and verification-result.json. Source repository: https://github.com/wingsyuyi-satori/nonfree-G24r.",
+  "keywords": [
+    "Lean",
+    "formal verification",
+    "free groups",
+    "relation numbers",
+    "unipotent matrices"
+  ]
+}

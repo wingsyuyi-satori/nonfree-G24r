@@ -1,0 +1,22 @@
+.lake/
+.cache/
+tools/
+reference/
+*.olean
+*.ilean
+*.c
+*.ndjson
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
+
+# Paper build intermediates (the PDF is intentionally tracked)
+paper/*.aux
+paper/*.log
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.out
+paper/qa/

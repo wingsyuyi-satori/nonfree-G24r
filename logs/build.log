@@ -1,0 +1,81 @@
+⚠ [3090/3107] Replayed TwentyFour.Core
+warning: TwentyFour/Core.lean:35:11: unused variable `x`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TwentyFour/Core.lean:35:13: unused variable `y`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TwentyFour/Core.lean:39:11: unused variable `x`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TwentyFour/Core.lean:39:13: unused variable `y`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: TwentyFour/Core.lean:174:46: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: TwentyFour/Core.lean:299:8: This simp argument is unused:
+  Bool.exists_bool
+
+Hint: Omit it from the simp argument list.
+  simp [̵B̵o̵o̵l̵.̵e̵x̵i̵s̵t̵s̵_̵b̵o̵o̵l̵,̵ ̵e̵q̵_̵c̵o̵m̵m̵,̵[̲e̲q̲_̲c̲o̲m̲m̲,̲ or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TwentyFour/Core.lean:299:26: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  simp [Bool.exists_bool, e̵q̵_̵c̵o̵m̵m̵,̵ ̵or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: TwentyFour/Core.lean:299:35: This simp argument is unused:
+  or_comm
+
+Hint: Omit it from the simp argument list.
+  simp [Bool.exists_bool, eq_comm,̵ ̵o̵r̵_̵c̵o̵m̵m̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [3092/3107] Replayed TwentyFour.FiniteCover
+info: TwentyFour/FiniteCover.lean:264:0: 'TwentyFour.FiniteCover.rules_valid' depends on axioms: [propext]
+info: TwentyFour/FiniteCover.lean:265:0: 'TwentyFour.FiniteCover.cover_remainder' depends on axioms: [propext, Quot.sound]
+⚠ [3093/3107] Replayed TwentyFour.CoverBridge
+warning: TwentyFour/CoverBridge.lean:50:59: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: TwentyFour/CoverBridge.lean:52:0: 'TwentyFour.FiniteCover.rules_int_valid' depends on axioms: [propext, Quot.sound]
+info: TwentyFour/CoverBridge.lean:53:0: 'TwentyFour.FiniteCover.integer_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3096/3107] Replayed TwentyFour.Parametric
+warning: TwentyFour/Parametric.lean:46:90: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3098/3107] Replayed TwentyFour.CoverRelations
+warning: TwentyFour/CoverRelations.lean:42:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: TwentyFour/CoverRelations.lean:48:0: 'TwentyFour.FiniteCover.outside_omitted_hasRelation' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3099/3107] Replayed TwentyFour.FiniteWords
+info: TwentyFour/FiniteWords.lean:781:0: 'TwentyFour.FiniteWords.exception_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TwentyFour/FiniteWords.lean:782:0: 'TwentyFour.FiniteWords.exception_hasRelation' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [3100/3107] Replayed TwentyFour.FreeGroupHopf
+warning: TwentyFour/FreeGroupHopf.lean:28:33: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: TwentyFour/FreeGroupHopf.lean:29:36: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: TwentyFour/FreeGroupHopf.lean:48:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+ℹ [3102/3107] Replayed TwentyFour.Main
+info: TwentyFour/Main.lean:72:0: 'TwentyFour.twentyfour_not_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TwentyFour/Main.lean:73:0: 'TwentyFour.twentyfour_hasRelation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TwentyFour/Main.lean:74:0: 'TwentyFour.twentyfour_evaluation_not_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3103/3107] Replayed TwentyFour.ComplexVersion
+info: TwentyFour/ComplexVersion.lean:86:0: 'TwentyFour.rationalToComplex_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TwentyFour/ComplexVersion.lean:87:0: 'TwentyFour.rationalComplexEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: TwentyFour/ComplexVersion.lean:88:0: 'TwentyFour.twentyfour_complex_not_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3104/3107] Replayed TwentyFour.Bounded
+info: TwentyFour/Bounded.lean:217:0: 'TwentyFour.twentyfour_boundedRelation' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3105/3107] Replayed TwentyFour.TwoStep
+info: TwentyFour/TwoStep.lean:428:0: 'TwentyFour.twentyfour_twoStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3107 jobs).

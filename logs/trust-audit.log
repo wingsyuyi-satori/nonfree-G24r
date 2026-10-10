@@ -1,0 +1,2 @@
+PASS: checked 19 project source files for forbidden proof/trust tokens
+PASS: 22 declarations depend only on ['Classical.choice', 'Quot.sound', 'propext'] (or fewer)

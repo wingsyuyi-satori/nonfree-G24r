@@ -1,0 +1,21 @@
+{
+  "TwentyFour/Bounded.lean": "7c9071f2a4eac9b2d4080c5d567435c8416e9ba32baa8c336d8dff8eed7fb94a",
+  "TwentyFour/ComplexVersion.lean": "62c4f7530a7e44bc402c1fdcf7a340749c8a84deceffd771ff7c8ea0c55201aa",
+  "TwentyFour/Core.lean": "ab7c0523debd2c3213e6b1417d4b23fe27162c8b2bc648737c46091cbe9f6d46",
+  "TwentyFour/CoverBridge.lean": "e6bd396ebd780030e6f28105de00afa1ec5d2d0b17e98933550f5d7ff8f1d119",
+  "TwentyFour/CoverRelations.lean": "e717509d1489e155f1144bbb7dd04991a1c1a44c44afbbc4d3e14fc6a1bcb107",
+  "TwentyFour/FiniteCover.lean": "89fbeab158259c4f53ba1e94ac06cf4d301df0ef06795bfc45b63e215031073a",
+  "TwentyFour/FiniteWords.lean": "f835891578a781b950125ff8fe53b681d179be619375417212c8c65468defb53",
+  "TwentyFour/FreeGroupHopf.lean": "76075d621c36f192e547391f1d8b39e2b72b8b15b39a3978f8eb7a76161b2e93",
+  "TwentyFour/GoodRule.lean": "edba8392ad5972fe93d4d08b8ad795e6c15e6efebbd4a26abb2987ed83b3cebc",
+  "TwentyFour/GoodRuleArithmetic.lean": "cb217c4b26df449796a8517ff3b0810d83d7a5e652946624f538ac96ca62dc66",
+  "TwentyFour/Main.lean": "16c89a24957b89844b45e663e3fed2556882bb789bdedafdfae8be5085c3ada0",
+  "TwentyFour/NonFree.lean": "842340cbfcfdc3b6ba95079ef71a35e662bdd180e2fda1053faaa17ae05ab16a",
+  "TwentyFour/Parametric.lean": "01f46b2a10386a942fb329b8e0a85b1f221969fd05275f289adf4ea646dd74bd",
+  "TwentyFour/ParametricArithmetic.lean": "3b5e98edce0f667c302892a9027b8e9f1f139f4f248c55cc5631f6548006767a",
+  "TwentyFour/SimpleDirect.lean": "c8529edc901b48e548553aa5aa49eb81ded0d8042d78e7f020bd6011c06ed9e5",
+  "TwentyFour/TwoStep.lean": "8f216d610f4231bddd7a6ea915cb48e98239a2c47a5a5a59cf52cc63f66aa310",
+  "Challenge.lean": "574808a20b932453299ba66b34e986e07f4db885228f45eac49d960704704dfd",
+  "Solution.lean": "1f1e6138b31154f4b860980bf1af7d0e83dd5583021e0440da585be27cc3d652",
+  "AxiomAudit.lean": "1daeaef35dc1c644975e6278bc1d7737f5318d319f2b49d18008ec2d543d1ea0"
+}

@@ -1,0 +1,20 @@
+The single-parameter construction in \cref{prop:direct} is proved in
+\texttt{SimpleDirect.lean}; the declaration
+\texttt{simple\_direct\_power\_identity} states the five integer powers
+in \eqref{eq:direct} directly. Both the universal main proof and the
+bounded-relation proof use this construction.
+
+In \texttt{TwoStep.lean}, the theorem \texttt{twentyfour\_twoStep}
+separately proves \cref{cor:twostep}. Its predicate requires a
+nonzero exponent list of length $1$, $3$, or $5$, beginning with $b$,
+whose matrix has zero upper-right entry. This proof checks the
+triangular witness directly rather than inferring it from the
+$64$-syllable relation bound.
+
+The final source revision passed Lean verification against the
+independent specifications, an axiom-dependency audit, and independent
+nanoda replay. The replay includes nonfreeness over $\Q$ and $\C$,
+nontrivial relation existence, the $64$-syllable bound, the two-step
+conclusion, and the direct parametric identity and certificates.
+The accompanying verification report records the exact target list
+and source and proof-export hashes.

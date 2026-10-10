@@ -1,0 +1,24 @@
+{
+  "module": "Solution",
+  "theorems": [
+    "twentyfour_not_free",
+    "twentyfour_hasRelation",
+    "twentyfour_boundedRelation",
+    "twentyfour_complex_not_free",
+    "twentyfour_twoStep",
+    "TwentyFour.simple_direct_power_identity",
+    "TwentyFour.simple_direct_scaled_certificate",
+    "TwentyFour.simple_direct_four_residues_certificate"
+  ],
+  "export_format": "lean4export NDJSON 3.1.0",
+  "bytes": 92643275,
+  "sha256": "f514b1142ef5a7e93adb44fccdce8417a0a209aff88d15c00d0426801dfb94f8",
+  "nanoda_checked_declarations": 18169,
+  "result": "no errors",
+  "earlier_3adic_declarations_absent": [
+    "three_factor",
+    "four_branch",
+    "odd_three_branch",
+    "direct_parameters"
+  ]
+}

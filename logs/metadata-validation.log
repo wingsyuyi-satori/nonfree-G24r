@@ -1,0 +1,8 @@
+CITATION.cff: PASS, official CFF 1.2.0 JSON schema validation.
+Schema source: https://raw.githubusercontent.com/citation-file-format/citation-file-format/main/schema.json
+Schema SHA256: 17bc7993c67b95eec988dadca78b65cb29cd489d1fceba71040a141dfb9791df
+.zenodo.json: PASS, valid JSON.
+Shared title, author, affiliation, version, and normalized MIT license: PASS.
+Repository URL: https://github.com/wingsyuyi-satori/nonfree-G24r
+Preferred paper title: PASS.
+DOI pending; no ORCID or citation email supplied.

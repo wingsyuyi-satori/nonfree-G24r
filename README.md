@@ -53,9 +53,7 @@ A clean project build was also performed without copying any project `.olean` fi
 
 The project follows the specification/proof/audit separation illustrated by [anthropics/formal-math](https://github.com/anthropics/formal-math). **Full comparator/Palomar acceptance was not completed on the original verification host.** That workflow's pinned checker expected `String.ofList`, absent in Lean 4.24, and the original host lacked the required Landlock support. No checker was modified and no sandbox was bypassed. Details and exact reference versions are in `VERIFICATION.md`.
 
-## Repository checks and continuous verification
-
-The [GitHub Actions workflow](.github/workflows/ci.yml) checks the release manifest and exact finite data, builds the project with pinned Lean and Mathlib, and audits fresh axiom dependencies. It builds project modules from source while downloading the external Mathlib cache. Fresh logs are saved as a workflow artifact. Independent nanoda replay remains available through the separate commands below.
+## Repository checks
 
 For the checks that require only Python **3.9 or newer**:
 

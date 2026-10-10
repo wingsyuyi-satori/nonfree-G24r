@@ -1,0 +1,623 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!35!black,citecolor=blue!35!black,urlcolor=blue!35!black]{hyperref}
+\usepackage{fancyvrb}
+\usepackage[capitalise,noabbrev]{cleveref}
+\input{author}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\AddToHook{env/theorem/begin}{\crefalias{theorem}{theorem}}
+\AddToHook{env/proposition/begin}{\crefalias{theorem}{proposition}}
+\AddToHook{env/lemma/begin}{\crefalias{theorem}{lemma}}
+\AddToHook{env/corollary/begin}{\crefalias{theorem}{corollary}}
+\numberwithin{equation}{section}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\F}{F(a,b)}
+\newcommand{\low}[1]{\begin{pmatrix}1&0\\#1&1\end{pmatrix}}
+\newcommand{\up}[1]{\begin{pmatrix}1&#1\\0&1\end{pmatrix}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\syll}{\lVert\,\cdot\,\rVert_{\mathrm{syl}}}
+\setlist{itemsep=3pt,topsep=5pt}
+\setlength{\emergencystretch}{2em}
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\pdftrailerid{}\pdfsuppressptexinfo=15\fi
+\hypersetup{pdftitle={Nonfreeness for rational two-parabolic groups with numerator 24},pdfauthor={\AuthorName}}
+\title{Nonfreeness for rational two-parabolic groups\protect\\with numerator 24}
+\author{\AuthorName\ifx\AuthorAffiliation\empty\else\\\small\AuthorAffiliation\fi}
+\date{October 10, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $A=\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)$ and
+$B_q=\left(\begin{smallmatrix}1&q\\0&1\end{smallmatrix}\right)$.
+We prove that $\langle A,B_{24/r}\rangle\leq\SL_2(\C)$ is not a free group
+for every integer $r$ with $|r|>6$. Each parameter has a nontrivial
+relation of at most $64$ syllables. Moreover, $24/r$ is a two-step
+relation number whenever $|r|>17$. The proof combines a finite
+certificate of $48$ good residue-class rules with a five-syllable
+identity for every nonzero integer $x$ and $R=1+1260x$:
+\[
+ B_{24/R}^{\,3Rx} A^{18+630x} B_{24/R}^{-3}
+ A^{18x}B_{24/R}^{\,R(3+105x)}
+ =\begin{pmatrix}1&0\\18/R&1\end{pmatrix}.
+\]
+This identity covers the four residue classes left by the finite
+certificate. All finite data and their exact verification are included,
+and the accompanying Lean project proves the universal nonfreeness
+and bounded-relation statements.
+\end{abstract}
+
+\section{Introduction}
+For $q\in\C$, put
+\begin{equation}\label{eq:generators}
+ A=\low{1},\qquad B_q=\up{q},\qquad
+ G_q=\langle A,B_q\rangle\leq\SL_2(\C).
+\end{equation}
+The rational two-parabolic problem asks whether $G_q$ is nonfree for
+every nonzero rational $q$ with $|q|<4$. Kim and Koberda
+\cite[Theorem~1.4]{KK2020} proved this for parameters $q=s/r$ with
+$0<|s|\leq27$ and $|s|\ne24$. For numerator $24$, they proved that
+the denominators giving two-step relation numbers have natural density
+one. We prove the all-denominator conclusion for this numerator.
+
+A \emph{syllable} is a nonzero integer power of one formal generator.
+The syllable length of a freely reduced word counts its alternating
+power blocks; it does not count the letters obtained by expanding
+those powers. Let $\F$ denote the free group on $a,b$, and let
+$\ev_q:\F\to\SL_2(\C)$ send $a$ to $A$ and $b$ to $B_q$.
+
+\begin{theorem}\label{thm:main}
+For every integer $r$ satisfying $|r|>6$, the group $G_{24/r}$ is not
+an abstract free group. There is a nonempty freely reduced word
+$v_r\in\F$ with at most $64$ syllables such that
+\[
+ v_r\ne1,\qquad \ev_{24/r}(v_r)=I.
+\]
+No coprimality assumption on $r$ and $24$ is required.
+\end{theorem}
+
+Following \cite[Definition in Section~1]{KK2020}, a nonzero parameter
+$q$ is a \emph{two-step relation number} if an alternating word
+\begin{equation}\label{eq:twostep-def}
+ b^{e_1}a^{e_2}\cdots b^{e_{2k+1}},\qquad
+ 0\leq k\leq2,\qquad e_j\in\Z\setminus\{0\},
+\end{equation}
+has a lower-triangular value under $\ev_q$.
+
+\begin{corollary}\label{cor:twostep}
+The parameter $24/r$ is a two-step relation number for every integer
+$r$ with $|r|>17$. In particular, the set of such denominators is
+cofinite in $\Z\setminus\{0\}$.
+\end{corollary}
+
+\begin{corollary}\label{cor:smallnumerators}
+If $s,r\in\Z$, $r\ne0$, $0<|s|\leq27$, and $|s/r|<4$, then
+$G_{s/r}$ is not a free group.
+\end{corollary}
+\begin{proof}
+Use \cref{thm:main} when $|s|=24$, and
+\cite[Theorem~1.4(1)]{KK2020} otherwise. The identity
+$B_{-q}=B_q^{-1}$ handles the signs.
+\end{proof}
+The last corollary uses the existing results for other numerators.
+The argument below is self-contained for numerator $24$; it makes no
+claim for all rational parameters in $(-4,4)$.
+
+\subsection*{The mechanism of the proof}
+The good-class criterion of Kim and Koberda reduces many parameters
+to a five-syllable lower-unipotent matrix. We use $48$ explicit rules,
+including rules for denominators that are not coprime to $24$.
+Together they cover $40316$ of the $40320$ residue classes modulo
+$40320$. The missing representatives are
+\begin{equation}\label{eq:omitted}
+ 1261,\quad6299,\quad34021,\quad39059.
+\end{equation}
+Each is congruent to $1$ or $-1$ modulo $1260$. The same
+five-syllable mechanism admits a particularly simple specialization
+on these two progressions: set $R=1+1260x$ and use
+\[
+ m=18x,\quad y=3x,\quad u=1+36x,\quad t=3,\quad e=-3-105x.
+\]
+Then $e=y-ut$ and $Ru+24me=1$. These two equations give the
+identity in the abstract, with no recursive descent or valuation
+calculation. The finitely many exceptions to the good-class rules
+are handled by $23$ exact words.
+
+The logical roles of the ingredients are separate. The residue-class
+check is a complete finite computation, the parametric identity
+handles every integer in the remaining infinite families, and free
+reduction proves that the resulting relations are nontrivial.
+We also give the group-theoretic argument that a nontrivial relation
+for these two noncommuting generators implies abstract nonfreeness.
+Section~\ref{sec:formal} identifies the corresponding Lean statements
+and the verification boundary.
+
+\section{A five-syllable matrix identity}\label{sec:identity}
+Write $L(z)=\left(\begin{smallmatrix}1&0\\z&1\end{smallmatrix}\right)$
+and $U(z)=\left(\begin{smallmatrix}1&z\\0&1\end{smallmatrix}\right)$.
+For every integer $n$,
+\begin{equation}\label{eq:powers}
+ A^n=L(n),\qquad B_q^n=U(nq).
+\end{equation}
+Our commutator convention is $[X,Y]=XYX^{-1}Y^{-1}$.
+
+\Needspace{11\baselineskip}
+\begin{lemma}\label{lem:five}
+Let $s,r,m,y,u,t,e,k\in\Z$, with $r\ne0$, satisfy
+\begin{equation}\label{eq:five-assumptions}
+ m=ky,\qquad e=y-ut,\qquad ru+sme=1.
+\end{equation}
+For $B=B_{s/r}$, one has
+\begin{equation}\label{eq:five}
+ W:=B^{ry}A^{-ke}B^{-t}A^mB^{-re}=L(kt/r).
+\end{equation}
+If $m,y,t,e$ are all nonzero, the formal word $w$ displayed in
+\eqref{eq:five} has five nonzero syllables, and $[w,a]$ is a
+nontrivial relation of exactly $12$ syllables.
+\end{lemma}
+\begin{proof}
+Equations \eqref{eq:powers} and \eqref{eq:five-assumptions} give
+\begin{align*}
+ B^{ry}A^{-ke}
+ &=\begin{pmatrix}1-skye&sy\\-ke&1\end{pmatrix}
+  =\begin{pmatrix}ru&sy\\-ke&1\end{pmatrix},\\
+ B^{ry}A^{-ke}B^{-t}
+ &=\begin{pmatrix}ru&se\\-ke&1+sket/r\end{pmatrix}.
+\end{align*}
+After multiplication by $A^m$, the upper-left entry is $ru+sme=1$.
+If $K$ is the lower-left entry, then
+\begin{align*}
+ rK&=rm-rke+skemt\\
+   &=k\bigl(r(y-e)+smet\bigr)\\
+   &=kt(ru+sme)=kt.
+\end{align*}
+Thus
+\[
+ B^{ry}A^{-ke}B^{-t}A^m
+ =\begin{pmatrix}1&se\\kt/r&1+sket/r\end{pmatrix}.
+\]
+Right multiplication by $B^{-re}=U(-se)$ proves \eqref{eq:five}.
+The matrices $L(kt/r)$ and $A$ commute.
+
+If $m,y,t,e$ are nonzero, then $k\ne0$, and all five exponents in
+$w=b^{ry}a^{-ke}b^{-t}a^mb^{-re}$ are nonzero. In
+$[w,a]=waw^{-1}a^{-1}$, the generator types alternate as
+$b,a,b,a,b,a,b,a,b,a,b,a$. Consequently the word is freely
+reduced and nonempty, while its matrix value is $I$.
+\end{proof}
+
+The next lemma is the good-class criterion
+\cite[Definition~3.3 and Lemma~3.5]{KK2020}, stated with the
+explicit relation length needed here. We include the proof, in
+particular its normalization when the denominator is not coprime
+to the numerator.
+
+\begin{lemma}[Good residue classes]\label{lem:good}
+Let $s,w,m,y$ be nonzero integers, and put
+\[
+ D=\gcd(w,sm)>0,\qquad d=\gcd(w,s)>0.
+\]
+Suppose
+\begin{equation}\label{eq:goodconditions}
+ yD\mid md,\qquad w\mid smy-D\ \text{or}\ w\mid smy+D.
+\end{equation}
+Every integer
+\[
+ r\equiv w\pmod{sm},\qquad r\notin\{0,w,D,-D\},
+\]
+admits a five-syllable lower-unipotent word for $s/r$, and therefore
+a nontrivial $12$-syllable relation.
+\end{lemma}
+\begin{proof}
+First consider the normalized situation
+\[
+ y\mid m,\qquad w\mid smy-1,\qquad
+ r=w+smt\notin\{0,w,1,-1\}.
+\]
+Set $u=(1-smy)/w$, choose $k\in\Z$ with $m=ky$, and put
+$e=y-ut$. Then
+\[
+ ru+sme=(w+smt)u+sm(y-ut)=wu+smy=1.
+\]
+Here $t\ne0$ because $r\ne w$. Also $e\ne0$, since $e=0$
+would give $ru=1$ and hence $r\in\{1,-1\}$. Apply
+\cref{lem:five}. If instead $w\mid smy+1$, replace $y$ by $-y$.
+This changes neither divisibility by $y$ nor its nonvanishing.
+
+For the general case, put
+\[
+ c=D/d,\quad w'=w/D,\quad r'=r/D,\quad
+ s'=s/d,\quad m'=md/D.
+\]
+All these quantities are integers. Indeed,
+$D/d=\gcd(w/d,m)$ because $\gcd(w/d,s/d)=1$, so $c\mid m$.
+Moreover, $D\mid r$ and
+\[
+ r'=w'+s'm't,\qquad y\mid m',\qquad
+ w'\mid s'm'y-1\ \text{or}\ w'\mid s'm'y+1,
+\]
+where $r=w+smt$ and $t\ne0$. The exclusions on $r$ give
+$r'\notin\{0,w',1,-1\}$. The normalized argument produces a
+five-syllable word for $s'/r'$, even when $s'=1$.
+Finally,
+\[
+ \frac{s'}{r'}=c\frac sr,\qquad B_{s'/r'}=(B_{s/r})^c.
+\]
+Multiply every $b$ exponent by the nonzero integer $c$.
+The matrix identity, nonzero exponents, and alternating syllable
+pattern are preserved.
+\end{proof}
+
+\section{The two remaining progressions}\label{sec:direct}
+\begin{proposition}\label{prop:direct}
+For every nonzero integer $x$, let $R=1+1260x$ and $B=B_{24/R}$.
+Then
+\begin{equation}\label{eq:direct}
+ B^{3Rx}A^{18+630x}B^{-3}A^{18x}B^{R(3+105x)}=L(18/R).
+\end{equation}
+The commutator of the displayed formal word with $a$ is a
+nontrivial $12$-syllable relation.
+\end{proposition}
+\begin{proof}
+Take
+\begin{equation}\label{eq:directparameters}
+ m=18x,\quad y=3x,\quad k=6,\quad u=1+36x,
+ \quad t=3,\quad e=-3-105x.
+\end{equation}
+Then $m=ky$ and $e=y-ut$. A direct expansion gives
+\begin{align*}
+ Ru+24me
+ &=(1+1260x)(1+36x)+432x(-3-105x)\\
+ &=1+1296x+45360x^2-1296x-45360x^2=1.
+\end{align*}
+Since $x$ is a nonzero integer, $|R|\ge1259$, and $m,y,t$ are
+nonzero. The equality $e=0$ would imply $35x=-1$, which is
+impossible in $\Z$. Thus \cref{lem:five} applies. Substituting
+\eqref{eq:directparameters} into \eqref{eq:five} gives precisely
+\eqref{eq:direct}, with $kt=18$.
+\end{proof}
+
+\begin{corollary}\label{cor:progressions}
+If $r\equiv\pm1\pmod{1260}$ and $|r|>1$, then $24/r$ has a
+five-syllable lower-unipotent word and a nontrivial $12$-syllable
+relation. In particular, this holds for every integer whose residue
+modulo $40320$ is in \eqref{eq:omitted}.
+\end{corollary}
+\begin{proof}
+Choose $\varepsilon\in\{1,-1\}$ such that $R=\varepsilon r$
+is congruent to $1$ modulo $1260$. Write $R=1+1260x$.
+Then $x\ne0$, since $|r|>1$. Apply \cref{prop:direct}.
+Because $B_{24/R}=B_{24/r}^{\varepsilon}$, multiply the three
+$b$ exponents in \eqref{eq:direct} by $\varepsilon$. This does
+not change nonvanishing or syllable length. For the final assertion,
+$1260\mid40320$, and the four representatives in \eqref{eq:omitted}
+reduce to $1,-1,1,-1$ modulo $1260$.
+\end{proof}
+
+For example, $R=1261$ corresponds to $x=1$, and
+\[
+ B_{24/1261}^{3783}A^{648}B_{24/1261}^{-3}
+ A^{18}B_{24/1261}^{136188}=L(18/1261).
+\]
+For $r=6299$, choose $R=-6299$ and $x=-5$. In the original
+parameter $24/6299$, this becomes
+\[
+ B_{24/6299}^{-94485}A^{-3132}B_{24/6299}^{3}
+ A^{-90}B_{24/6299}^{-3288078}=L(-18/6299).
+\]
+The examples illustrate the sign convention; the proof of
+\cref{prop:direct} applies to all nonzero integers $x$.
+
+\section{The finite certificate}\label{sec:finite}
+Let $\mathcal T$ be the $48$ quadruples $(w,m,y,D)$ in
+\cref{app:rules}, and let $M=40320$. Each row denotes both residue
+classes $r\equiv w$ and $r\equiv-w\pmod{24m}$. Define
+\begin{equation}\label{eq:cover}
+ \mathcal C=\bigcup_{(w,m,y,D)\in\mathcal T}
+ \{a\in\{0,\ldots,M-1\}:a\equiv\pm w\pmod{24m}\}.
+\end{equation}
+Let
+\begin{equation}\label{eq:exceptions}
+\begin{split}
+ E=\{&7,8,9,10,11,12,13,14,17,24,31,35,37,59,61,83,85,\\
+     &107,109,613,877,1139,2267\}.
+\end{split}
+\end{equation}
+
+\begin{proposition}[Finite covering certificate]\label{prop:finite}
+The table $\mathcal T$ has the following properties.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Every row satisfies $24m\mid M$, $D=\gcd(w,24m)$,
+$yD\mid m\gcd(w,24)$, and $w\mid24my-D$ or $w\mid24my+D$.
+\item The complement of $\mathcal C$ is precisely
+$\{1261,6299,34021,39059\}$.
+\item The set of numbers greater than $6$ occurring as a $w$ or
+$D$ in the table is exactly $E$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+These are finite integer assertions about the complete table in
+\cref{app:rules}. For clarity, the entire covering check is the
+following enumeration: start with $\mathcal C=\varnothing$; for each
+row and each $0\leq a<M$, insert $a$ if $24m$ divides $a-w$ or
+$a+w$; finally take the complement in $\{0,\ldots,M-1\}$.
+The result is the four-element set in (ii). The rowwise divisibilities
+and the set in (iii) are checked by ordinary integer arithmetic.
+The accompanying file \texttt{verify\_certificate.py} performs
+these exact checks from \texttt{data/compact\_certificate.json};
+\texttt{FiniteCover.lean} proves the same finite assertions using
+kernel-checked decision procedures. The tables and the stated tests
+fully specify the certificate, independently of how its rows were found.
+\end{proof}
+
+\begin{lemma}[Exceptional words]\label{lem:exceptional}
+For each $r\in E$, the exponent list in \cref{app:words} defines
+an alternating word $w_r=b^{e_1}a^{e_2}\cdots b^{e_L}$ with
+nonzero exponents and $L\leq15$. Its value is
+\begin{equation}\label{eq:triangularvalue}
+ W_r=\begin{pmatrix}\alpha&0\\\beta&\alpha^{-1}\end{pmatrix},
+\end{equation}
+where the exact rational numbers $\alpha,\beta$ are given in
+\cref{app:matrices}. Consequently $[w_raw_r^{-1},a]$ is a
+nontrivial relation with $4L+4\leq64$ syllables.
+\end{lemma}
+\begin{proof}
+Multiply the matrices in \eqref{eq:powers} using each exponent list.
+For a direct scalar recurrence, if the accumulated matrix is
+$\left(\begin{smallmatrix}p&q\\v&z\end{smallmatrix}\right)$,
+right multiplication by $B_{24/r}^n$ or $A^n$ respectively gives
+\[
+ (p,q,v,z)\longmapsto(p,q+24np/r,v,z+24nv/r),
+\]
+\[
+ (p,q,v,z)\longmapsto(p+nq,q,v+nz,z).
+\]
+Starting from $(1,0,0,1)$ gives exactly the entries in
+\cref{app:matrices}. This also specifies a short exact-rational
+verification of every row.
+
+For any matrix of the form \eqref{eq:triangularvalue},
+\[
+ W_rAW_r^{-1}=L(\alpha^{-2}),
+\]
+which commutes with $A$. The formal relation expands as
+\[
+ w_raw_r^{-1}a\,w_ra^{-1}w_r^{-1}a^{-1}.
+\]
+Each copy of $w_r$ or $w_r^{-1}$ begins and ends with a $b$
+syllable, and the connecting syllables are nonzero powers of $a$.
+There is no free cancellation, so its syllable length is exactly
+$4L+4$. The table has $L\leq15$.
+\end{proof}
+
+\begin{proposition}\label{prop:allrelations}
+For every integer $r$ with $|r|>6$, there is a nontrivial relation
+for $A,B_{24/r}$ of at most $64$ syllables.
+\end{proposition}
+\begin{proof}
+Since $B_{-q}=B_q^{-1}$, it suffices to handle $r>6$.
+If $r\in E$, use \cref{lem:exceptional}. Otherwise, if its
+residue modulo $M$ is one of \eqref{eq:omitted}, use
+\cref{cor:progressions}. In the remaining case,
+\cref{prop:finite}(ii) supplies a row with
+$r\equiv\pm w\pmod{24m}$. Replace $r$ by $-r$ if necessary
+to obtain the positive-sign class, apply \cref{lem:good}, and
+then invert the $b$ generator back. All excluded values
+$0,\pm w,\pm D$ with absolute value greater than $6$ belong to
+$\pm E$ by \cref{prop:finite}(iii); our chosen denominator is
+therefore not excluded. The good-class and progression constructions
+have $12$ syllables, and the exceptional words give at most $64$.
+\end{proof}
+
+\begin{proof}[Proof of \cref{cor:twostep}]
+Outside $\pm E$, the proof just given produces a five-syllable
+lower-unipotent word. For $r\in E$ with $r>17$, every word
+listed in \cref{app:words} has three or five syllables. These
+are precisely witnesses of the form \eqref{eq:twostep-def}.
+Negating the $b$ exponents handles negative denominators.
+\end{proof}
+
+\section{From relations to abstract nonfreeness}\label{sec:nonfree}
+For completeness we give the group-theoretic bridge, including
+the Hopf property used in the formal development. This avoids
+identifying failure of freeness of the displayed generating pair
+with abstract nonfreeness without justification.
+
+\begin{lemma}\label{lem:hopf}
+Every surjective endomorphism of a finitely generated free group
+is injective.
+\end{lemma}
+\begin{proof}
+First, a nonidentity element $w$ in any free group is detected by
+a finite permutation representation. Choose a word spelling $w$,
+and let $S$ be the finite set of its suffix products, including $1$
+and $w$. For each free generator $g$, left multiplication by $g$
+defines a partial bijection on $S$, on the domain where both the
+initial and final elements lie in $S$. Extend it to a permutation
+of $S$ by matching the two equally sized complements. The inverse
+permutation agrees with multiplication by $g^{-1}$ wherever both
+endpoints lie in $S$. By the universal property of the free group,
+these permutations define a homomorphism to $\operatorname{Sym}(S)$.
+Reading the chosen word from right to left sends $1$ successively
+through its suffix products and finally to $w\ne1$. The homomorphism
+therefore detects $w$.
+
+Now let $F$ be finitely generated and let $\phi:F\to F$ be
+surjective. For any finite group $K$, the set
+$\operatorname{Hom}(F,K)$ is finite. Precomposition
+$f\mapsto f\circ\phi$ is injective, hence surjective, on this
+set. If a nonidentity $w$ belonged to $\ker\phi$, choose a
+homomorphism $f:F\to K$ detecting it as in the first paragraph.
+Write $f=g\circ\phi$. Then $f(w)=g(1)=1$, a contradiction.
+\end{proof}
+
+\begin{lemma}\label{lem:bridge}
+Let $H$ be generated by two noncommuting elements $A,B$.
+If the evaluation homomorphism $\F\to H$ has nontrivial kernel,
+then $H$ is not an abstract free group.
+\end{lemma}
+\begin{proof}
+Suppose that $H$ were free. Its noncommutativity forces a free basis
+to contain at least two elements. Sending two distinct basis elements
+to $a,b$, and all other basis elements to $1$, gives a surjection
+$H\to\F$. Composing this map with the surjective evaluation map
+$\F\to H$ gives a surjective endomorphism of $\F$.
+By \cref{lem:hopf} it is injective, forcing the evaluation map to
+be injective as well. This contradicts its nontrivial kernel.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:main}]
+The relation and its length bound follow from
+\cref{prop:allrelations}. For $q=24/r\ne0$,
+\[
+ AB_q=\begin{pmatrix}1&q\\1&1+q\end{pmatrix},\qquad
+ B_qA=\begin{pmatrix}1+q&q\\1&1\end{pmatrix},
+\]
+so $A$ and $B_q$ do not commute. Apply \cref{lem:bridge}.
+All matrices and identities already lie in $\SL_2(\Q)$.
+The entrywise inclusion $\SL_2(\Q)\hookrightarrow\SL_2(\C)$
+is injective and identifies the generated subgroups, so the same
+abstract nonfreeness conclusion holds in $\SL_2(\C)$.
+\end{proof}
+
+\section{Formal statements and reproducibility}\label{sec:formal}
+The accompanying project is pinned to Lean~4.24.0 and
+mathlib~v4.24.0. The source file \texttt{Challenge.lean} specifies
+the displayed matrices and target propositions independently of
+the implementation; \texttt{Solution.lean} proves those
+propositions. The implementation uses the actual free group on a
+two-element type, with its standard nontriviality criterion.
+A syllable is a pair in $\mathrm{Bool}\times\Z$, with
+\texttt{false} denoting $a$ and \texttt{true} denoting $b$.
+The reducedness predicate requires alternating generator types and
+nonzero exponents. Its connection to a nonidentity free-group element
+is proved by expansion into signed letters.
+
+The central bounded-relation theorem has the mathematical content
+\begin{align*}
+ \forall r\in\Z,\quad |r|>6\ \Longrightarrow\ 
+ \exists \ell: &\ell\text{ is nonempty and reduced},\quad |\ell|\leq64,\\
+ &\operatorname{word}(\ell)\ne1,\quad
+ \ev_{24/r}(\operatorname{word}(\ell))=I.
+\end{align*}
+The separate nonfreeness theorem concludes
+$\neg\operatorname{IsFreeGroup}(G_{24/r})$. The rational-to-complex
+map is proved injective, and its image is proved to be exactly the
+subgroup generated by the complex versions of \eqref{eq:generators}.
+Thus the complex conclusion is an explicit formal theorem.
+
+\begin{center}\small
+\begin{tabular}{p{.34\textwidth}p{.58\textwidth}}
+\toprule
+Mathematical component & Lean source or declaration\\
+\midrule
+Matrices and reduced words & \texttt{Core.lean}\\[3pt]
+General good-class criterion & \texttt{GoodRuleArithmetic.lean}, \texttt{GoodRule.lean}\\[3pt]
+Single-parameter identity & \texttt{SimpleDirect.lean}\\[3pt]
+Finite cover and exceptional words & \texttt{FiniteCover.lean}, \texttt{FiniteWords.lean}\\[3pt]
+Hopf property and nonfreeness & \texttt{FreeGroupHopf.lean}, \texttt{NonFree.lean}\\[3pt]
+Uniform syllable bound & \texttt{TwentyFour.twentyfour\_boundedRelation}\\[3pt]
+Two-step conclusion for $|r|>17$ & \texttt{TwentyFour.twentyfour\_twoStep}\\[3pt]
+Complex matrix-group conclusion & \texttt{TwentyFour.twentyfour\_complex\_not\_free}\\
+\bottomrule
+\end{tabular}
+\end{center}
+\input{verification_status}
+
+The finite coverage proof checks $40$ blocks of $1008$ residues,
+which together exhaust $0,\ldots,40319$. It uses Lean's ordinary
+\texttt{decide}, producing proof terms checked by the kernel.
+The project does not use \texttt{sorry}, user-added axioms,
+\texttt{native\_decide}, or compiler-oracle axioms. The audited
+logical dependencies are restricted to Lean's standard
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+Independent nanoda replay checks exported declarations and their
+transitive dependencies under the same allowed-axiom list.
+
+No acceptance by the full sandboxed Palomar/comparator workflow is
+claimed; compatibility and host limitations are documented in the
+repository. Version pins, commands, exact theorem lists, and raw
+checker logs are supplied there. The standalone Python verifier
+uses only integers and \texttt{fractions.Fraction}; it is a convenient
+second implementation of the finite arithmetic, rather than a
+trusted step in the Lean proof.
+
+\subsection*{AI assistance}
+GPT-6-Astra assisted with research exploration, proof construction,
+exact computation, Lean formalization, and preparation of this manuscript.
+
+\smallskip
+\noindent\copyright\ 2026 Ziheng Wang. This manuscript is licensed under
+\href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International}.
+
+\appendix
+\crefalias{section}{appendix}
+\clearpage
+\section{Complete good-class table}\label{app:rules}
+Each row $(w,m,y,D)$ represents the two classes
+$r\equiv\pm w\pmod{24m}$. The full arithmetic conditions are
+those in \cref{prop:finite}(i). The row numbers are for reference
+only; the machine-readable certificate contains the same ordered
+quadruples.
+\input{data/rules_table}
+
+\section{Exact finite verification}\label{app:verification}
+Given the table above, the finite part can be checked as follows.
+\begin{enumerate}
+\item For each row, compute the two gcd values and check the
+gcd and divisibility conditions of \cref{prop:finite}(i).
+\item Evaluate the predicate in \eqref{eq:cover} for every integer
+$a$ from $0$ to $40319$. Its false values must be exactly
+$1261,6299,34021,39059$.
+\item Collect the values $w,D$ exceeding $6$, remove repetitions,
+and compare with \eqref{eq:exceptions}.
+\item For every word in \cref{app:words}, apply the rational
+recurrences in \cref{lem:exceptional} and compare the resulting
+matrix with \cref{app:matrices}.
+\end{enumerate}
+The supplied verifier also checks the full commutator matrices,
+reduced syllable patterns, and the bound $64$. It regenerates all
+three tables from the checked data, so the exponent lists and
+matrix entries need not be copied manually.
+
+\clearpage
+\section{Complete exceptional exponent lists}\label{app:words}
+For each listed denominator $r$, put $B=B_{24/r}$. The list
+$(e_1,\ldots,e_L)$ denotes
+\[
+ W_r=B^{e_1}A^{e_2}B^{e_3}\cdots B^{e_L}.
+\]
+All exponents are nonzero, and every list has odd length. The
+relation used uniformly is $[W_rAW_r^{-1},A]=I$, with $4L+4$
+syllables. For $r>17$ all these lists have length at most five,
+as required for \cref{cor:twostep}.
+\input{data/words_table}
+
+\clearpage
+\section{Exact matrices for the exceptional words}\label{app:matrices}
+The values of the words in \cref{app:words} are
+$W_r=\left(\begin{smallmatrix}\alpha&0\\\beta&\alpha^{-1}\end{smallmatrix}\right)$.
+The last column is the length of the displayed commutator relation;
+no optimality of these lengths is asserted.
+\input{data/matrices_table}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

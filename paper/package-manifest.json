@@ -1,0 +1,17 @@
+{
+  "README.md": "899ab0ce8a36da837a481866e7c723a550941061b43298dc7c5ad41ed595396f",
+  "author.tex": "93d753a8522f5c51f28294c3e306164a261c7bca6cd15ed3b06a0a187b2edec5",
+  "build.sh": "e1315f2250144de961c1e17c98c584add9eb8ee99f0fca739effd1e3b66ab601",
+  "data/compact_certificate.json": "0bfc50bee69e334bd080d89a2cd4f7b6a688ee0fcfbf2406b271dabe05bf791d",
+  "data/matrices_table.tex": "533597c007f9df2b183c403f966b2e5ac1c8761092d0f706cd6f4e40d9393b6b",
+  "data/rules_table.tex": "1ce71e13f47cefaac3f4246458615af50ef8266d45136f2f6404abf91b320701",
+  "data/verification.json": "8748f8516ed4630bc9ad51e3b7c74c5462c7bbc20849b98e7779fdafeaed205a",
+  "data/words_table.tex": "baeb58bd77b4b865ec77a176eff532eb13b8f33488f7a3acab4fb0efde8f337e",
+  "main.bbl": "e37a668729dced2c5d6e566b6645df8620845c0f4771f47e04ceb503360e8233",
+  "main.pdf": "7b7cb440ad1b5d66e391a04be44d9131cfa7131cdbe93b324778281fc0a893dd",
+  "main.tex": "d487cf325084bfd353a33984778bc50d87afe9b479d1c96dd1d65dfc93a1b7db",
+  "references.bib": "cbf51d35dcf84b032465aaa4df50620c62a1859aed1048f1508f3c9e9ce90f80",
+  "verification_status.tex": "ac77c8b389f7ee2cf7175932b8f579c4347422f9c837ffd10e2bee67890ac738",
+  "verify_certificate.py": "a20b502128cff57d14eb7d666b06b61e3207a69d7b167fd93c9b69f9dd5b1237",
+  "中文概览.txt": "55e37d29864564b4931ea5e533b6e098c37c7648f2ae0fcc359dce20d8997408"
+}
