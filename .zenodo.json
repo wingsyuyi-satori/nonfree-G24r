@@ -1,22 +1,29 @@
 {
-  "title": "Nonfreeness for rational two-parabolic groups with numerator 24: Lean formalization",
-  "upload_type": "software",
+  "title": "Nonfreeness for rational two-parabolic groups with numerator 24",
+  "upload_type": "publication",
   "version": "0.1.0",
   "creators": [
     {
       "name": "Wang, Ziheng",
-      "affiliation": "University of Chinese Academy of Sciences, Hangzhou Institute for Advanced Study, Hangzhou, China"
+      "affiliation": "University of Chinese Academy of Sciences, Hangzhou Institute for Advanced Study, Hangzhou, China",
+      "orcid": "0009-0002-4179-4161"
     }
   ],
-  "license": "mit",
+  "license": "cc-by-4.0",
   "access_right": "open",
   "language": "eng",
-  "description": "Lean 4 and Mathlib formalization accompanying the manuscript \"Nonfreeness for rational two-parabolic groups with numerator 24\" by Ziheng Wang. It proves nonfreeness in SL(2,Q) and SL(2,C) for every integer denominator r with |r| > 6, provides nontrivial reduced relations of at most 64 generator-power syllables, and proves the two-step triangular-word condition for |r| > 17. AI assistance: GPT-6-Astra. The software is licensed under MIT; the accompanying manuscript and its source/PDF under paper/ are licensed separately under CC BY 4.0. Verification status and precise scope are recorded in the included logs and verification-result.json. Source repository: https://github.com/wingsyuyi-satori/nonfree-G24r.",
+  "description": "This preprint presents a proof of nonfreeness for rational two-parabolic matrix groups with numerator 24.\n\nFor every integer denominator r with |r| > 6, the groups at parameter 24/r are nonfree over both the rational and complex numbers, in SL(2,Q) and SL(2,C). For each such parameter, the proof provides a nonempty, freely reduced relation with at most 64 alternating nonzero generator-power syllables. For |r| > 17, the parameter is a two-step relation number.\n\nThe mathematical results are accompanied by a Lean 4 and Mathlib formalization. This record includes the manuscript PDF and LaTeX sources, the complete Lean project with pinned dependencies, finite certificate data, an exact Python certificate verifier, and verification scripts and logs. The included verification documentation specifies the scope and provenance of the checks.\n\nAuthor: Ziheng Wang.\nAI assistance: GPT-6-Astra.\n\nThe manuscript and its LaTeX/PDF sources are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0). The software and Lean sources are licensed separately under the MIT License.\n\nSource repository: https://github.com/wingsyuyi-satori/nonfree-G24r",
   "keywords": [
-    "Lean",
-    "formal verification",
-    "free groups",
+    "two-parabolic groups",
+    "nonfreeness",
     "relation numbers",
-    "unipotent matrices"
-  ]
+    "unipotent matrices",
+    "free groups",
+    "Lean 4",
+    "formal verification",
+    "computer-assisted proof"
+  ],
+  "publication_type": "preprint",
+  "doi": "10.5281/zenodo.23280225",
+  "publication_date": "2026-10-10"
 }

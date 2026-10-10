@@ -23,4 +23,9 @@ Author: Ziheng Wang. AI assistance: GPT-6-Astra.
 Software and Lean sources: MIT. Accompanying manuscript: CC BY 4.0.
 
 Repository: https://github.com/wingsyuyi-satori/nonfree-G24r.
-Zenodo archiving is pending; no DOI is assigned in this source snapshot.
+The manuscript and accompanying Lean project were published together as a
+preprint on Zenodo on 2026-10-10.
+DOI: [10.5281/zenodo.23280225](https://doi.org/10.5281/zenodo.23280225).
+Record: https://zenodo.org/records/23280225.
+The Zenodo files preserve the submitted v0.1.0 snapshot; this repository also
+contains citation and metadata updates made after publication.

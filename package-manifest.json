@@ -12,8 +12,8 @@
     },
     {
       "path": ".zenodo.json",
-      "sha256": "c461d2d6d8ac4e0c905441b14cba31c535cedf2f949accff81a5e3a9647682ea",
-      "bytes": 1266
+      "sha256": "55b4800d1317b76ba81674d81b69c898dde81e1f707f3adcabb29bd1affa7644",
+      "bytes": 1936
     },
     {
       "path": "AxiomAudit.lean",
@@ -27,8 +27,8 @@
     },
     {
       "path": "CITATION.cff",
-      "sha256": "a10489b30edbded96cfdf3b8444522ab5cef47fc1f9ed14c5f77f75bdc59e892",
-      "bytes": 1369
+      "sha256": "1977ad05b58acc3d3d7fba6aa2847efbafc36b0d8e928449f471cb33e321a845",
+      "bytes": 1728
     },
     {
       "path": "Challenge.lean",
@@ -52,23 +52,23 @@
     },
     {
       "path": "README.md",
-      "sha256": "4e9e8b18552674778f1fce85a3ed8c47730342effbb90a8ec854e682762d23e9",
-      "bytes": 7490
+      "sha256": "fa23538035ee8a6dfb39fc5d67b69b844e4c1fb1b87fa6e9e9995ae799b9917a",
+      "bytes": 7747
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "50bd58827d715f454fb10b1b3cbc92b8b491904e53149d462e7a414fd0059c94",
-      "bytes": 5965
+      "sha256": "9c9cb288b1839c4a4199803a4fb07813557b7a5567b3492e6de70f1aedf9a4c7",
+      "bytes": 6298
     },
     {
       "path": "RELEASE_CHECKLIST.md",
-      "sha256": "5bca6887d202e31de7b25b4003a005fb3c3dd1f2f3f245fe36d10750326a62d6",
-      "bytes": 2106
+      "sha256": "0e52d713d7b3fd7ebbd1352de3a6be12a97f2c5c18812046fd93289ff84c262f",
+      "bytes": 2381
     },
     {
       "path": "RELEASE_NOTES.md",
-      "sha256": "29a803340b547a55f6e25514bf83d81ca84d82153fe1608f1bda9a28c581cd36",
-      "bytes": 1340
+      "sha256": "ef9de85dc9dfcfeea37724bc6fc730dd0ae4950e90cc69bfc36108e44dc8a307",
+      "bytes": 1634
     },
     {
       "path": "Solution.lean",
@@ -212,8 +212,8 @@
     },
     {
       "path": "logs/metadata-validation.log",
-      "sha256": "e82860bbd5164d93f88ad2d06e9099fe0367560ec8722b7520b572b40a4d7299",
-      "bytes": 505
+      "sha256": "ab7dec895eb98c6a89923f33e281a1985ab586132076246e5cecedbb75efddb8",
+      "bytes": 699
     },
     {
       "path": "logs/nanoda-config.json",
@@ -237,8 +237,8 @@
     },
     {
       "path": "logs/repository-preparation.json",
-      "sha256": "f08927c3499ca2ebc6245be873a4930e71b0614070c3698d4c9c80b6014772fd",
-      "bytes": 1137
+      "sha256": "a95e009d0326743135e778daef5eaa91b7f0be5c24c67a542a35dd6f58522f7b",
+      "bytes": 1456
     },
     {
       "path": "logs/source-audit.log",
@@ -342,8 +342,8 @@
     },
     {
       "path": "scripts/check-release.py",
-      "sha256": "fb53274f58204607cf97ea5d769d6aa28cff1bebc38c003d6f0df730ebe866d1",
-      "bytes": 5486
+      "sha256": "0a2269cec0f2cded50267968e118c3ea2b855c52cc3143d9b97bcfcf411ffeaf",
+      "bytes": 6852
     },
     {
       "path": "scripts/check-trust.py",

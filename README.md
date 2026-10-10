@@ -9,7 +9,8 @@ AI assistance: **GPT-6-Astra**.
 [中文说明](README.zh-CN.md) · [Paper PDF](paper/main.pdf) · [LaTeX source](paper/main.tex)
 
 Public repository: [wingsyuyi-satori/nonfree-G24r](https://github.com/wingsyuyi-satori/nonfree-G24r).
-Version: **0.1.0**. The paper and Lean project will be archived together as a software record on Zenodo; the DOI will be added after the deposit.
+Version: **0.1.0**. The paper and Lean project were archived together as a **preprint** on Zenodo on 2026-10-10.
+Paper DOI: [10.5281/zenodo.23280225](https://doi.org/10.5281/zenodo.23280225) · [Zenodo record](https://zenodo.org/records/23280225).
 
 This pinned Lean 4 / Mathlib project verifies the following results for
 
@@ -95,7 +96,9 @@ The script regenerates `logs/proofs.ndjson` and runs nanoda with a strict standa
 
 ## Citation, metadata, and licenses
 
-`CITATION.cff` and `.zenodo.json` describe the same software title, author, affiliation, version, and MIT license. The preferred paper citation uses the manuscript title above. The repository URL is recorded in the citation metadata and archive description. A DOI will be added after Zenodo assigns it; no email or ORCID is supplied.
+`CITATION.cff` describes the Lean software project and gives the published preprint as its preferred citation, including the paper DOI. `.zenodo.json` describes the combined preprint record under the manuscript title above. Both record the author, affiliation, ORCID, version, and public repository URL. The manuscript is CC BY 4.0; the software remains MIT.
+
+Zenodo preserves the submitted v0.1.0 files. This repository also includes citation and metadata updates made after publication.
 
 - Software and Lean sources: **MIT**, copyright 2026 Ziheng Wang; see `LICENSE`.
 - Accompanying manuscript and the source/PDF under `paper/`: **CC BY 4.0**; see `LICENSE-PAPER.md`.

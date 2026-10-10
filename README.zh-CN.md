@@ -5,7 +5,8 @@
 AI assistance: GPT-6-Astra.
 
 公开仓库：[wingsyuyi-satori/nonfree-G24r](https://github.com/wingsyuyi-satori/nonfree-G24r)。
-版本：**0.1.0**。论文与 Lean 项目将一起作为软件记录归档至 Zenodo，取得 DOI 后更新引用信息。
+版本：**0.1.0**。论文与 Lean 项目已于 **2026-10-10** 一起作为**预印本**归档至 Zenodo。
+论文 DOI：[10.5281/zenodo.23280225](https://doi.org/10.5281/zenodo.23280225) · [Zenodo 记录](https://zenodo.org/records/23280225)。
 
 这是一个固定 Lean 4.24.0 / mathlib v4.24.0 的可重建项目。证明对象为有理矩阵
 
@@ -87,4 +88,6 @@ bash scripts/verify-nanoda.sh Solution twentyfour_not_free twentyfour_hasRelatio
 
 精确版本见 `lean-toolchain`、`lake-manifest.json` 和 `verification-pins.json`。各层验证的状态和范围见 `verification-result.json` 与 `VERIFICATION.md`，原始文本日志位于 `logs/`。交付包不含下载的工具、Mathlib、缓存、参考仓库或原始研究文本；文件完整性清单位于 `package-manifest.json`。
 
-软件与 Lean 代码采用 MIT（`LICENSE`）；论文及 `paper/` 中的稿件采用 CC BY 4.0（`LICENSE-PAPER.md`）。引用与软件归档信息见 `CITATION.cff`、`.zenodo.json`，已填入正式仓库地址。DOI 待 Zenodo 分配后补入；未填写邮箱或 ORCID。
+软件与 Lean 代码采用 MIT（`LICENSE`）；论文及 `paper/` 中的稿件采用 CC BY 4.0（`LICENSE-PAPER.md`）。`CITATION.cff` 描述 Lean 软件项目，并将已发布的论文预印本列为首选引用，包含论文 DOI。`.zenodo.json` 对应论文与项目合并归档的预印本记录。两者均包含作者、单位、ORCID、版本与公开仓库地址。
+
+Zenodo 保留提交时的 v0.1.0 文件；当前仓库还包含发布后补入的 DOI 和引用元数据。

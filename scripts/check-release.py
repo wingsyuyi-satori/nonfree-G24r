@@ -68,17 +68,35 @@ def cff_field(name):
     if not match:
         fail(f'Missing citation field: {name}')
     return match.group(1).strip('\"\'')
-if cff_field('title') != zenodo['title'] or cff_field('version') != version or zenodo['version'] != version:
-    fail('Citation title/version and Zenodo metadata disagree.')
+preferred = cff.split('preferred-citation:\n', 1)
+if len(preferred) != 2:
+    fail('The preferred preprint citation is missing.')
+def paper_cff_field(name):
+    match = re.search(r'^  '+re.escape(name)+r':\s*(.*?)\s*$', preferred[1], re.MULTILINE)
+    if not match:
+        fail(f'Missing preferred citation field: {name}')
+    return match.group(1).strip('\"\'')
+if paper_cff_field('title') != zenodo['title'] or cff_field('version') != version or zenodo['version'] != version or paper_cff_field('version') != version:
+    fail('Preferred paper citation/version and Zenodo metadata disagree.')
 if cff_field('repository-code') != REPOSITORY or REPOSITORY not in zenodo['description']:
     fail('Repository URL is missing or inconsistent.')
-if cff_field('license').lower() != zenodo['license'].lower() or zenodo['license'].lower() != 'mit':
-    fail('Software licenses disagree.')
-if zenodo['upload_type'] != 'software' or zenodo['access_right'] != 'open':
-    fail('Zenodo resource type or access differs from the release plan.')
+if cff_field('type') != 'software' or cff_field('license').lower() != 'mit':
+    fail('The software citation or its MIT license is incorrect.')
+if zenodo['license'].lower() != 'cc-by-4.0' or paper_cff_field('license') != 'CC-BY-4.0':
+    fail('Preprint licenses disagree.')
+if zenodo['upload_type'] != 'publication' or zenodo.get('publication_type') != 'preprint' or zenodo['access_right'] != 'open':
+    fail('Zenodo resource type or access differs from the published preprint.')
+doi = '10.5281/zenodo.23280225'
+record = 'https://zenodo.org/records/23280225'
+if zenodo.get('doi') != doi or paper_cff_field('doi') != doi or paper_cff_field('url') != record:
+    fail('The published paper DOI or record URL is missing or inconsistent.')
+if zenodo.get('publication_date') != '2026-10-10' or paper_cff_field('date-published') != '2026-10-10':
+    fail('The preprint publication date is inconsistent.')
 creator = zenodo['creators'][0]
 if creator['name'] != 'Wang, Ziheng' or creator['affiliation'] != result['affiliation']:
     fail('Zenodo authorship differs from the supplied research artifact.')
+if creator.get('orcid') != '0009-0002-4179-4161' or 'https://orcid.org/'+creator['orcid'] not in cff:
+    fail('The citation ORCID differs from the published record.')
 if 'family-names: Wang' not in cff or 'given-names: Ziheng' not in cff or creator['affiliation'] not in cff:
     fail('Citation authorship differs from the supplied research artifact.')
 if result['paper_license'] != 'CC-BY-4.0' or 'CC BY 4.0' not in (ROOT/'LICENSE-PAPER.md').read_text(encoding='utf-8'):
@@ -87,9 +105,12 @@ lakefile = (ROOT/'lakefile.toml').read_text(encoding='utf-8')
 if not re.search(r'^version\s*=\s*"'+re.escape(version)+r'"\s*$', lakefile, re.MULTILINE):
     fail('Lake package and citation versions disagree.')
 for name in ('README.md', 'README.zh-CN.md'):
-    if REPOSITORY not in (ROOT/name).read_text(encoding='utf-8'):
+    readme = (ROOT/name).read_text(encoding='utf-8')
+    if REPOSITORY not in readme:
         fail(f'The public repository link is missing from {name}')
-print('PASS: versions, repository URL, author, affiliation, and licenses agree')
+    if doi not in readme or record not in readme:
+        fail(f'The published DOI or Zenodo record link is missing from {name}')
+print('PASS: versions, paper DOI, repository URL, author, affiliation, ORCID, and licenses agree')
 
 subprocess.run([sys.executable, str(ROOT/'paper/verify_certificate.py'), '--check'], check=True)
 subprocess.run([sys.executable, str(ROOT/'scripts/check-trust.py'),

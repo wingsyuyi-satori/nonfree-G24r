@@ -22,5 +22,15 @@
   "cff_schema_sha256": "17bc7993c67b95eec988dadca78b65cb29cd489d1fceba71040a141dfb9791df",
   "local_lean_rebuild": "not performed; no installed Lean toolchain on preparation machine",
   "local_nanoda_replay": "not performed; original source-matched evidence retained",
-  "zenodo_deposit": "pending; combined software record planned"
+  "zenodo_deposit": {
+    "status": "published",
+    "resource_type": "preprint",
+    "version": "0.1.0",
+    "doi": "10.5281/zenodo.23280225",
+    "record": "https://zenodo.org/records/23280225",
+    "publication_date": "2026-10-10",
+    "metadata_confirmed_via": "https://api.datacite.org/dois/10.5281/zenodo.23280225",
+    "datacite_state": "findable",
+    "doi_active": true
+  }
 }
